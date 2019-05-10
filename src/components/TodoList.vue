@@ -3,6 +3,10 @@
         <div>TodoList</div>
         <div v-for="item in items" :key="item.id">
             <div class="id">{{item.id}}</div>
+            <label for>
+                <input type="checkbox" id="forCheck" v-model="checked">
+            </label>
+            
             <div class="unchecked"> <font-awesome-icon icon="coffee" /></div>
             <div class="checked"> <font-awesome-icon icon="coffee" /></div>
             <div class="name">タスク名：{{ item.name }}</div>
