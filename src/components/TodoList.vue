@@ -26,7 +26,7 @@
                     <input type="checkbox" id="checkbox" v-model="item.keeoStatus">
                     
                     <div class="finish">finish:{{ item.finish }}</div>
-                    <div>keep: {{ item.keeoStatus }}</div>
+                    <div>keep: {{ item.keepStatus }}</div>
                     <div class="name">タスク名：{{ item.name }}</div>
                 </div>
             </div>
