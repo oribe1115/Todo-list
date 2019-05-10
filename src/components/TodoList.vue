@@ -46,7 +46,7 @@ export default {
                     finish:false
                 });
                 this.newItemName = "";
-                count++;
+                this.count++;
             }
         }
     }
