@@ -1,22 +1,44 @@
 <template>
     <div>
         <div>TodoList</div>
-        <div v-for="item in items" :key="item.id">
-            <div class="id">{{item.id}}</div>
-            
-            <input type="checkbox" id="checkbox" v-model="item.finish">
-            
-            <div class="finish">{{ item.finish }}</div>
-            <div class="unchecked"> <font-awesome-icon icon="coffee" /></div>
-            <div class="checked"> <font-awesome-icon icon="coffee" /></div>
-            <div class="name">タスク名：{{ item.name }}</div>
+
+        <div class="unfinished">
+            <div class="category-message">Let's begin!</div>
+            <div v-for="item in items" :key="item.id">
+                <div v-if="!(item.finish)">
+                    <div class="id">{{item.id}}</div>
+                
+                    <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                    
+                    <div class="finish">finish:{{ item.finish }}</div>
+                    <div>keep:{{ item.keepStatus }}</div>
+                    <div class="name">タスク名：{{ item.name }}</div>
+                </div>
+            </div>
         </div>
+
+        <div class="finished">
+            <div class="category-message">Finished</div>
+            <div v-for="item in items" :key="item.id">
+                <div v-if="item.finish">
+                    <div class="id">{{item.id}}</div>
+                
+                    <input type="checkbox" id="checkbox" v-model="item.keeoStatus">
+                    
+                    <div class="finish">finish:{{ item.finish }}</div>
+                    <div>keep: {{ item.keeoStatus }}</div>
+                    <div class="name">タスク名：{{ item.name }}</div>
+                </div>
+            </div>
+        </div>
+        
 
         <label for>
             タスク名
             <input type="text" v-model="newItemName">
         </label>
         <button @click="addItem">add</button>
+        <button @click="update">update</button>
     </div>
     
 </template>
@@ -33,12 +55,14 @@ export default {
                 {
                     id: 1,
                     name: "TODOリストを作る!",
-                    finish: false
+                    finish: false,
+                    keepStatus: false
                 },
                 {
                     id: 2,
                     name: "公開する",
-                    finish: false
+                    finish: false,
+                    keepStatus: false
                 }
             ]
         }
@@ -49,10 +73,16 @@ export default {
                 this.items.push({
                     id: this.count,
                     name: this.newItemName,
-                    finish:false
+                    finish: false,
+                    keepStatus: false
                 });
                 this.newItemName = "";
                 this.count++;
+            }
+        },
+        update(){
+            for(var item in this.items){
+                item.finish = item.keepStatus;
             }
         }
     }
