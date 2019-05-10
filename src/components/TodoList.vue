@@ -3,7 +3,8 @@
         <div>TodoList</div>
         <div v-for="item in items" :key="item.id">
             <div class="id">{{item.id}}</div>
-            <div class="check"> <font-awesome-icon icon="coffee" /></div>
+            <div class="unchecked"> <font-awesome-icon icon="coffee" /></div>
+            <div class="checked"> <font-awesome-icon icon="coffee" /></div>
             <div class="name">タスク名：{{ item.name }}</div>
         </div>
 
@@ -55,4 +56,7 @@ export default {
 </script>
 
 <style>
+.unchecked {
+    color: rgb(194, 194, 194);
+}
 </style>
