@@ -7,6 +7,17 @@
         <div class="price">{{ item.price }} 円</div>
       </div>
     </div>
+    <div>
+      <label for>
+        名前
+        <input type="text" v-model="newItemName">
+      </label>
+      <label for>
+        価格
+        <input type="number" v-model="newItemPrice">
+      </label>
+      <button @click="addItem">add</button>
+    </div>
   </div>
 </template>
 
@@ -15,10 +26,14 @@ export default {
   name: "ItemList",
   data() {
     return {
-      items: [
-        {name: 'たまご', price: 100},
-        {name: 'りんご', price: 160}
-      ]
+      items: [{ name: "たまご", price: 100 }, { name: "りんご", price: 160 }],
+      newItemName: "",
+      newItemPrice: 0
+    };
+  },
+  methods: {
+    addItem() {
+      this.items.push({ name: this.newItemName, price: this.newItemPrice });
     }
   }
 };
