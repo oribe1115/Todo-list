@@ -5,6 +5,12 @@
             <div class="id">{{item.id}}</div>
             <div class="name">タスク名：{{ item.name }}</div>
         </div>
+
+        <label for>
+            タスク名
+            <input type="text" v-model="newItemName">
+        </label>
+        <button @click="addItem">add</button>
     </div>
     
 </template>
@@ -16,6 +22,7 @@ export default {
         return {
             // 仮配列にあわせて適当な値から
             count: 3,
+            newItemName: "",
             items: [
                 {
                     id: 1,
@@ -28,6 +35,19 @@ export default {
                     finish: false
                 }
             ]
+        }
+    },
+    methods: {
+        addItem() {
+            if(this.newItemName != ""){
+                this.items.push({
+                    id: this.count,
+                    name: this.newItemName,
+                    finish:false
+                });
+                this.newItemName = "";
+                count++;
+            }
         }
     }
 };
