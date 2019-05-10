@@ -23,7 +23,7 @@
                 <div v-if="item.finish">
                     <div class="id">{{item.id}}</div>
                 
-                    <input type="checkbox" id="checkbox" v-model="item.keeoStatus">
+                    <input type="checkbox" id="checkbox" v-model="item.keepStatus">
                     
                     <div class="finish">finish:{{ item.finish }}</div>
                     <div>keep: {{ item.keepStatus }}</div>
