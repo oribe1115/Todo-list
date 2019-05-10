@@ -9,9 +9,6 @@
                     <div class="id">{{item.id}}</div>
                 
                     <input type="checkbox" id="checkbox" v-model="item.keepStatus">
-                    
-                    <div class="finish">finish:{{ item.finish }}</div>
-                    <div>keep:{{ item.keepStatus }}</div>
                     <div class="name">タスク名：{{ item.name }}</div>
                 </div>
             </div>
@@ -24,9 +21,6 @@
                     <div class="id">{{item.id}}</div>
                 
                     <input type="checkbox" id="checkbox" v-model="item.keepStatus">
-                    
-                    <div class="finish">finish:{{ item.finish }}</div>
-                    <div>keep: {{ item.keepStatus }}</div>
                     <div class="name">タスク名：{{ item.name }}</div>
                 </div>
             </div>
