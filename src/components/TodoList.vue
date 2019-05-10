@@ -80,8 +80,8 @@ export default {
                 this.count++;
             }
         },
-        update(){
-            for(var item in this.items){
+        update() {
+            for(const item of this.items){
                 item.finish = item.keepStatus;
             }
         }
