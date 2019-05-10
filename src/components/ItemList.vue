@@ -36,6 +36,8 @@ export default {
     addItem() {
       if(this.newItemName != "" && this.newItemPrice != 0){
         this.items.push({ name: this.newItemName, price: this.newItemPrice });
+        this.newItemName = "";
+        this.newItemPrice = 0;
       }
       
     }
