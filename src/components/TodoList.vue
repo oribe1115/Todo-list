@@ -4,7 +4,7 @@
         <div v-for="item in items" :key="item.id">
             <div class="id">{{item.id}}</div>
             
-            <input type="checkbox" id="checkbox" v-model="checked">
+            <input type="checkbox" id="checkbox" v-model="item.finish">
             
             <div class="finish">{{ item.finish }}</div>
             <div class="unchecked"> <font-awesome-icon icon="coffee" /></div>
