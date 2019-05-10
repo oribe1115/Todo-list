@@ -34,7 +34,10 @@ export default {
   },
   methods: {
     addItem() {
-      this.items.push({ name: this.newItemName, price: this.newItemPrice });
+      if(this.newItemName != "" && this.newItemPrice != 0){
+        this.items.push({ name: this.newItemName, price: this.newItemPrice });
+      }
+      
     }
   }
 };
