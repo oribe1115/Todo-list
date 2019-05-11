@@ -115,6 +115,7 @@ export default {
                 item.finish = item.keepStatus;
                 item.importance = item.keepImportance;
             }
+            this.sortWithImportance();
         },
         changeKeepImportance(i, item) {
             item.keepImportance = i;
@@ -131,6 +132,11 @@ export default {
             } else {
                 return item.keepImportance;
             }
+        }
+    },
+    computed: {
+        sortWithImportance(){
+            this.items.sort((a, b) => b.importance - a.importance);
         }
     }
 };
