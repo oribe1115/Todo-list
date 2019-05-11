@@ -14,7 +14,10 @@
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
-                                    <font-awesome-icon icon="star" />
+                                    <div v-bind:class="{filled: i <= item.keepImportance, blank: i > item.keepImportance}">
+                                        <font-awesome-icon icon="star" />
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -38,6 +41,14 @@
                         <div class="item">
                             <input type="checkbox" id="checkbox" v-model="item.keepStatus">
                             <div class="name">{{ item.name }}</div>
+                            <div class="star-box">
+                                <div v-for="i in 5" :key="i">
+                                    <div v-bind:class="{filled: i <= item.keepImportance, blank: i > item.keepImportance}">
+                                        <font-awesome-icon icon="star" />
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,18 +74,18 @@ export default {
                 {
                     id: 1,
                     name: "TODOリストを作る!",
-                    finish: false,
-                    keepStatus: false,
-                    importance: 0,
-                    keepImportance: 0
+                    finish: true,
+                    keepStatus: true,
+                    importance: 3,
+                    keepImportance: 3
                 },
                 {
                     id: 2,
                     name: "公開する",
-                    finish: true,
-                    keepStatus: true,
-                    importance: 0,
-                    keepImportance: 0
+                    finish: false,
+                    keepStatus: false,
+                    importance: 2,
+                    keepImportance: 2
                 }
             ]
         }
