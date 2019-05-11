@@ -79,7 +79,8 @@ export default {
                     finish: true,
                     keepStatus: true,
                     importance: 3,
-                    keepImportance: 3
+                    keepImportance: 3,
+                    hoverStar: 0
                 },
                 {
                     id: 2,
@@ -87,7 +88,8 @@ export default {
                     finish: false,
                     keepStatus: false,
                     importance: 2,
-                    keepImportance: 2
+                    keepImportance: 2,
+                    hoverStar: 0
                 }
             ]
         }
@@ -101,7 +103,8 @@ export default {
                     finish: false,
                     keepStatus: false,
                     importance: 1,
-                    keepImportance: 1
+                    keepImportance: 1,
+                    hoverStar: 0
                 });
                 this.newItemName = "";
                 this.count++;
@@ -115,6 +118,19 @@ export default {
         },
         changeKeepImportance(i, item) {
             item.keepImportance = i;
+        },
+        mouseOver(i, item) {
+            item.hoverStar = i;
+        },
+        mouseLeave(item) {
+            item.hoverStar = 0;
+        },
+        compareForFillStars(item) {
+            if(item.hoverStar > item.keepImportance){
+                return item.hoverStar;
+            } else {
+                return item.keepImportance;
+            }
         }
     }
 };
