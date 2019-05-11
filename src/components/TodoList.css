@@ -24,6 +24,7 @@
 
 .task {
     width: 250px;
+    height: 200px;
 }
 
 .item {
@@ -33,6 +34,7 @@
 
 .for-change{
     width: 100px;
+    height: 100px;
 }
 
 

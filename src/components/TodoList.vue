@@ -5,41 +5,41 @@
 
         <div class="main">
 
-            <div class="list">
-                <div class="task unfinished">
-                    <div class="category-message">Let's begin!</div>
-                    <div v-for="item in items" :key="item.id">
-                        <div v-if="!(item.finish)">
-                            <div class="item">
-                                <input type="checkbox" id="checkbox" v-model="item.keepStatus">
-                                <div class="name">{{ item.name }}</div>
-                            </div>
+            <div class="task unfinished">
+                <div class="category-message">Let's begin!</div>
+                <div v-for="item in items" :key="item.id">
+                    <div v-if="!(item.finish)">
+                        <div class="item">
+                            <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                            <div class="name">{{ item.name }}</div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="task finished">
-                    <div class="category-message">Finished</div>
-                    <div v-for="item in items" :key="item.id">
-                        <div v-if="item.finish">
-                            <div class="item">
-                                <input type="checkbox" id="checkbox" v-model="item.keepStatus">
-                                <div class="name">{{ item.name }}</div>
-                            </div>
+            <div class="for-change">
+                <div class="category-message">New Task</div>
+                <label for>
+                    <input type="text" v-model="newItemName">
+                </label>
+                <button @click="addItem">add</button>
+                <button @click="update">update</button>
+            </div>
+
+            <div class="task finished">
+                <div class="category-message">Finished</div>
+                <div v-for="item in items" :key="item.id">
+                    <div v-if="item.finish">
+                        <div class="item">
+                            <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                            <div class="name">{{ item.name }}</div>
                         </div>
                     </div>
                 </div>
             </div>
             
 
-            <div class="for-change">
-                <label for>
-                    タスク名
-                    <input type="text" v-model="newItemName">
-                </label>
-                <button @click="addItem">add</button>
-                <button @click="update">update</button>
-            </div>
+            
 
         </div>
     </div>
@@ -66,8 +66,8 @@ export default {
                 {
                     id: 2,
                     name: "公開する",
-                    finish: false,
-                    keepStatus: false,
+                    finish: true,
+                    keepStatus: true,
                     importance: 0,
                     keepImportance: 0
                 }
