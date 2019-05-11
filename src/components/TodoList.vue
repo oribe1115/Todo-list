@@ -50,13 +50,17 @@ export default {
                     id: 1,
                     name: "TODOリストを作る!",
                     finish: false,
-                    keepStatus: false
+                    keepStatus: false,
+                    importance: 0,
+                    keepImportance: 0
                 },
                 {
                     id: 2,
                     name: "公開する",
                     finish: false,
-                    keepStatus: false
+                    keepStatus: false,
+                    importance: 0,
+                    keepImportance: 0
                 }
             ]
         }
@@ -68,7 +72,9 @@ export default {
                     id: this.count,
                     name: this.newItemName,
                     finish: false,
-                    keepStatus: false
+                    keepStatus: false,
+                    importance: 0,
+                    keepImportance: 0
                 });
                 this.newItemName = "";
                 this.count++;
@@ -77,6 +83,7 @@ export default {
         update() {
             for(const item of this.items){
                 item.finish = item.keepStatus;
+                item.importance = item.keepImportance;
             }
         }
     }
