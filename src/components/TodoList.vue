@@ -126,7 +126,7 @@ export default {
             item.hoverStar = 0;
         },
         compareForFillStars(item) {
-            if(item.hoverStar > item.keepImportance){
+            if(item.hoverStar != 0){
                 return item.hoverStar;
             } else {
                 return item.keepImportance;
