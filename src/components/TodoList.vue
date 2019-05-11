@@ -14,8 +14,8 @@
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
-                                    <div v-bind:class="{filled: i <= item.keepImportance, blank: i > item.keepImportance}">
-                                        <div @click="changeKeepImportance(i, item)">
+                                    <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
+                                        <div @click="changeKeepImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
                                             <font-awesome-icon icon="star" />
                                         </div>
                                     </div>
@@ -44,8 +44,8 @@
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
-                                    <div v-bind:class="{filled: i <= item.keepImportance, blank: i > item.keepImportance}">
-                                        <div @click="changeKeepImportance(i, item)">
+                                    <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
+                                        <div @click="changeKeepImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
                                             <font-awesome-icon icon="star" />
                                         </div>
                                     </div>
