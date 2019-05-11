@@ -22,8 +22,8 @@
     flex-direction: row;
 }
 
-.for-change{
-    width: 100px;
+.task {
+    width: 250px;
 }
 
 .item {
@@ -31,6 +31,9 @@
     flex-direction: row;
 }
 
-.task {
-    width: 250px;
+.for-change{
+    width: 100px;
 }
+
+
+
