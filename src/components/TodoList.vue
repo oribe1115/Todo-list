@@ -14,7 +14,7 @@
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
-                                    <font-awesome-icon icon="coffee" />
+                                    <font-awesome-icon icon="star" />
                                 </div>
                             </div>
                         </div>
