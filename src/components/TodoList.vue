@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>TodoList</div>
+        <div class="title">TodoList</div>
 
         <div class="unfinished">
             <div class="category-message">Let's begin!</div>
@@ -90,5 +90,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style src="./TodoList.css"></style>
