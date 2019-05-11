@@ -25,3 +25,12 @@
 .for-change{
     width: 100px;
 }
+
+.item {
+    display: flex;
+    flex-direction: row;
+}
+
+.task {
+    width: 250px;
+}
