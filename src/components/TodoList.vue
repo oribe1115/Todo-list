@@ -84,7 +84,4 @@ export default {
 </script>
 
 <style>
-.unchecked {
-    color: rgb(194, 194, 194);
-}
 </style>
