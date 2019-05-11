@@ -15,15 +15,16 @@
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
                                     <div v-bind:class="{filled: i <= item.keepImportance, blank: i > item.keepImportance}">
-                                        <font-awesome-icon icon="star" />
+                                        <div @click="changeKeepImportance(i, item)">
+                                            <font-awesome-icon icon="star" />
+                                        </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
 
             <div class="for-change">
                 <div class="category-message">New Task</div>
@@ -44,9 +45,10 @@
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
                                     <div v-bind:class="{filled: i <= item.keepImportance, blank: i > item.keepImportance}">
-                                        <font-awesome-icon icon="star" />
+                                        <div @click="changeKeepImportance(i, item)">
+                                            <font-awesome-icon icon="star" />
+                                        </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -98,8 +100,8 @@ export default {
                     name: this.newItemName,
                     finish: false,
                     keepStatus: false,
-                    importance: 0,
-                    keepImportance: 0
+                    importance: 1,
+                    keepImportance: 1
                 });
                 this.newItemName = "";
                 this.count++;
@@ -110,6 +112,9 @@ export default {
                 item.finish = item.keepStatus;
                 item.importance = item.keepImportance;
             }
+        },
+        changeKeepImportance(i, item) {
+            item.keepImportance = i;
         }
     }
 };
