@@ -23,11 +23,15 @@
 }
 
 .task {
-    width: 250px;
     height: 200px;
 }
 
 .item {
+    display: flex;
+    flex-direction: row;
+}
+
+.star-box {
     display: flex;
     flex-direction: row;
 }

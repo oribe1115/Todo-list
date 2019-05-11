@@ -12,6 +12,11 @@
                         <div class="item">
                             <input type="checkbox" id="checkbox" v-model="item.keepStatus">
                             <div class="name">{{ item.name }}</div>
+                            <div class="star-box">
+                                <div v-for="i in 5" :key="i">
+                                    <font-awesome-icon icon="coffee" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
