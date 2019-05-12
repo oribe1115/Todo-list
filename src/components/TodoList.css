@@ -47,6 +47,13 @@
 }
 
 
+input[type="checkbox"]{   
+}
+
+input[type="checkbox"]:checked{
+}
+
+
 .name {
     width: 300px;
     text-align: left;
