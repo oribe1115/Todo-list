@@ -13,7 +13,7 @@
                             <div class="check">
                                 <label>
                                     <input type="checkbox" id="checkbox" class="checkbox" v-model="item.keepStatus">
-                                    <span class="checkbox-icon"></span>
+                                    <span class="checkbox-icon"><font-awesome-icon icon="check" /></span>
                                 </label>
                             </div>
                             <div class="name">{{ item.name }}</div>
