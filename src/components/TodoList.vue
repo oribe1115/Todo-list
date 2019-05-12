@@ -12,7 +12,8 @@
                         <div class="item">
                             <div class="check">
                                 <label>
-                                    <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                                    <input type="checkbox" id="checkbox" class="checkbox" v-model="item.keepStatus">
+                                    <span class="checkbox-icon"></span>
                                 </label>
                             </div>
                             <div class="name">{{ item.name }}</div>
