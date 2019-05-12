@@ -100,7 +100,7 @@ button {
     background-color: rgb(221, 195, 166);
     color: rgb(63, 45, 13);
     font-size: 20px;
-    border: none;
+    border: solid 1px rgb(63, 45, 13);
     border-radius: 10px;
 }
 
