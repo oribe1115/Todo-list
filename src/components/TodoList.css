@@ -1,12 +1,14 @@
 .body {
     display: flex;
     flex-direction: column;
+    height: 100%;
     width: 100%;
     align-items: center;
 }
 
 .title {
     font-size: 30px;
+    margin-bottom: 30px;
 }
 
 .main {
@@ -14,7 +16,6 @@
     flex-direction: column;
     align-items: center;
     width: 500px;
-    background-color: bisque;
 }
 
 .list {
@@ -23,17 +24,38 @@
 }
 
 .task {
-    height: 200px;
+    height: 300px;
+    width: 500px;
+    background-color: rgb(255, 241, 225);
+    border: solid 1px black;
+}
+
+.category-message {
+    font-size: 30px;
+    margin: 20px;
 }
 
 .item {
     display: flex;
     flex-direction: row;
+    border-bottom: solid 1px black;
+    margin: 5px;
+}
+
+.check {
+    width: 40px;
+}
+
+.name {
+    width: 300px;
+    text-align: left;
 }
 
 .star-box {
     display: flex;
     flex-direction: row;
+    width: 150px;
+    justify-content: center;
 }
 
 .filled {
@@ -45,8 +67,10 @@
 }
 
 .for-change{
-    width: 100px;
-    height: 100px;
+    height: 200px;
+    margin: 30px 0px;
+    border: solid 1px black;
+    width: 500px;
 }
 
 

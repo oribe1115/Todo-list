@@ -10,7 +10,9 @@
                 <div v-for="item in items" :key="item.id">
                     <div v-if="!(item.finish)">
                         <div class="item">
-                            <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                            <div class="check">
+                                <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                            </div>
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
@@ -40,7 +42,9 @@
                 <div v-for="item in items" :key="item.id">
                     <div v-if="item.finish">
                         <div class="item">
-                            <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                            <div class="check">
+                                <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                            </div>
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
