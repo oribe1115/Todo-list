@@ -11,10 +11,11 @@
                     <div v-if="!(item.finish)">
                         <div class="item">
                             <div class="check">
-                                <label>
-                                    <input type="checkbox" id="checkbox" class="checkbox" v-model="item.keepStatus">
-                                    <span class="checkbox-icon"><font-awesome-icon icon="check" /></span>
-                                </label>
+                                <div v-bind:class="{checked: item.keepStatus, unchecked: item.keepStatus == false}">
+                                    <div @click="changeKeepStatus(item)">
+                                        <font-awesome-icon icon="check" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
@@ -52,9 +53,11 @@
                     <div v-if="item.finish">
                         <div class="item">
                             <div class="check">
-                                <label>
-                                    <input type="checkbox" id="checkbox" v-model="item.keepStatus">
-                                </label>
+                                <div v-bind:class="{checked: item.keepStatus, unchecked: item.keepStatus == false}">
+                                    <div @click="changeKeepStatus(item)">
+                                        <font-awesome-icon icon="check" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
@@ -146,6 +149,13 @@ export default {
                 return item.hoverStar;
             } else {
                 return item.keepImportance;
+            }
+        },
+        changeKeepStatus(item){
+            if(item.keepStatus == true){
+                item.keepStatus = false;
+            } else {
+                item.keepStatus = true;
             }
         }
     },
