@@ -11,7 +11,9 @@
                     <div v-if="!(item.finish)">
                         <div class="item">
                             <div class="check">
-                                <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                                <label>
+                                    <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                                </label>
                             </div>
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
@@ -30,11 +32,17 @@
 
             <div class="for-change">
                 <div class="category-message">New Task</div>
-                <label for>
-                    <input type="text" v-model="newItemName">
-                </label>
-                <button @click="addItem">add</button>
-                <button @click="update">update</button>
+                <div class="buttons">
+                    <div class="addition">
+                        <label>
+                            <input type="text" v-model="newItemName">
+                        </label>
+                        <button @click="addItem">add</button>
+                    </div>
+                    <div class="update">
+                        <button @click="update">update</button>
+                    </div>
+                </div>
             </div>
 
             <div class="task finished">
@@ -43,7 +51,9 @@
                     <div v-if="item.finish">
                         <div class="item">
                             <div class="check">
-                                <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                                <label>
+                                    <input type="checkbox" id="checkbox" v-model="item.keepStatus">
+                                </label>
                             </div>
                             <div class="name">{{ item.name }}</div>
                             <div class="star-box">
