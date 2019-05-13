@@ -139,6 +139,7 @@ export default {
                 item.importance = item.keepImportance;
             }
             this.sortWithImportance();
+            this.updateForServer();
         },
         changeKeepImportance(i, item) {
             item.keepImportance = i;
@@ -168,6 +169,12 @@ export default {
         },
         getFromServer() {
             axios.get(this.serverLink).then(response => (this.items = response.data));
+        },
+        updateForServer(){
+            axios.delete(this.serverLink);
+            for(item in this.items) {
+                axios.post(this.serverLink, item);
+            }
         }
     },
     computed: {
