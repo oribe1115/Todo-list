@@ -127,7 +127,8 @@ export default {
                     keepImportance: 1,
                     hoverStar: 0
                 };
-                this.postToServer(item);    
+                this.postToServer(item);
+                this.getFromServer();    
                 this.newItemName = "";
                 this.count++;
             }
@@ -164,6 +165,9 @@ export default {
         },
         postToServer(item) {
             axios.post(this.serverLink, item);
+        },
+        getFromServer() {
+            axios.get(this.serverLink).then(response => (this.items = response.data));
         }
     },
     computed: {
