@@ -127,7 +127,7 @@ export default {
                     keepImportance: 1,
                     hoverStar: 0
                 };
-                postToServer(item);    
+                this.postToServer(item);    
                 this.newItemName = "";
                 this.count++;
             }
