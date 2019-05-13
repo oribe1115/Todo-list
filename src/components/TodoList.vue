@@ -171,9 +171,8 @@ export default {
             axios.get(this.serverLink).then(response => (this.items = response.data));
         },
         updateForServer(){
-            axios.delete(this.serverLink);
-            for(item in this.items) {
-                axios.post(this.serverLink, item);
+            for(item in this.items){
+                axios.put(this.serverLink + "/" + String(item.id), item);
             }
             this.getFromServer();
         }
