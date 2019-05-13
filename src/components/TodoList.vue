@@ -118,7 +118,7 @@ export default {
     methods: {
         addItem() {
             if(this.newItemName != ""){
-                this.items.push({
+                const item = {
                     id: this.count,
                     name: this.newItemName,
                     finish: false,
@@ -126,7 +126,8 @@ export default {
                     importance: 1,
                     keepImportance: 1,
                     hoverStar: 0
-                });
+                };
+                postToServer(item);    
                 this.newItemName = "";
                 this.count++;
             }
@@ -160,6 +161,9 @@ export default {
             } else {
                 item.keepStatus = true;
             }
+        },
+        postToServer(item) {
+            axios.post(this.serverLink, item);
         }
     },
     computed: {
