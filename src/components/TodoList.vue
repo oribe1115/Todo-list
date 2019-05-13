@@ -83,6 +83,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: "TodoList",
     data() {
@@ -109,7 +111,8 @@ export default {
                     keepImportance: 2,
                     hoverStar: 0
                 }
-            ]
+            ],
+            serverLink: "http://naro-todo-server.to-hutohu.trap.show/oribe/tasks"
         }
     },
     methods: {
@@ -163,6 +166,11 @@ export default {
         sortWithImportance(){
             this.items.sort((a, b) => b.importance - a.importance);
         }
+    },
+    mounted() {
+        axios
+            .get(this.serverLink)
+            .then(response => (this.items = response.data))
     }
 };
 </script>
