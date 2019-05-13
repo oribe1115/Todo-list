@@ -172,7 +172,7 @@ export default {
         },
         updateForServer(){
             for(item in this.items){
-                axios.put(this.serverLink + "/" + String(item.id), item);
+                axios.put(this.serverLink + "/" + item.id, item);
             }
             this.getFromServer();
         }
