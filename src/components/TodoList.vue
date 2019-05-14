@@ -150,9 +150,9 @@ export default {
         getFromServer() {
             axios.get(this.serverLink).then(response => (this.items = response.data));
         },
-        updateForServer(){
+        async updateForServer(){
             for(item of this.items){
-                axios.put(this.serverLink + "/" + item.id, item);
+                await axios.put(this.serverLink + "/" + item.id, item);
             }
             this.getFromServer();
         }
