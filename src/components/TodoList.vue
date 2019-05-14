@@ -89,30 +89,10 @@ export default {
     name: "TodoList",
     data() {
         return {
-            // 仮配列にあわせて適当な値から
-            count: 3,
+            count: 1,
             newItemName: "",
-            items: [
-                {
-                    id: 1,
-                    name: "TODOリストを作る!",
-                    finish: true,
-                    keepStatus: true,
-                    importance: 3,
-                    keepImportance: 3,
-                    hoverStar: 0
-                },
-                {
-                    id: 2,
-                    name: "公開する",
-                    finish: false,
-                    keepStatus: false,
-                    importance: 2,
-                    keepImportance: 2,
-                    hoverStar: 0
-                }
-            ],
-            serverLink: "http://naro-todo-server.to-hutohu.trap.show/oribe/tasks"
+            items: [],
+            serverLink: "https://to-hutohu.trap.show/naro-todo-server/oribe/tasks"
         }
     },
     methods: {
@@ -138,8 +118,8 @@ export default {
                 item.finish = item.keepStatus;
                 item.importance = item.keepImportance;
             }
-            this.sortWithImportance();
             this.updateForServer();
+            this.sortWithImportance();
         },
         changeKeepImportance(i, item) {
             item.keepImportance = i;
