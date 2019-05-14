@@ -119,7 +119,7 @@ export default {
                 item.importance = item.keepImportance;
             }
             this.updateForServer();
-            this.sortWithImportance();
+            this.sortWithImportance;
         },
         changeKeepImportance(i, item) {
             item.keepImportance = i;
@@ -151,7 +151,7 @@ export default {
             axios.get(this.serverLink).then(response => (this.items = response.data));
         },
         async updateForServer(){
-            for(item of this.items){
+            for(const item of this.items){
                 await axios.put(this.serverLink + "/" + item.id, item);
             }
             this.getFromServer();
