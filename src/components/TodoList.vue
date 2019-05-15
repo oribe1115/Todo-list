@@ -95,15 +95,23 @@ export default {
     methods: {
         addItem() {
             if(this.newItemName != ""){
+                newId = 1;
+                for (const item of items) {
+                    if (newId == item.id) {
+                        newId += 1;
+                    } else {
+                        break;
+                    }
+                }
+
                 const item = {
-                    id: this.count,
+                    id: newID,
                     name: this.newItemName,
                     finish: false,
                     importance: 1,
                     hoverStar: 0
                 };
                 this.newItemName = "";
-                this.count++;
                 this.postToServer(item);
             }
         },
