@@ -102,9 +102,7 @@ export default {
                     id: this.count,
                     name: this.newItemName,
                     finish: false,
-                    keepStatus: false,
                     importance: 1,
-                    keepImportance: 1,
                     hoverStar: 0
                 };
                 this.newItemName = "";
@@ -113,10 +111,6 @@ export default {
             }
         },
         update() {
-            // for(const item of this.items){
-            //     item.finish = item.keepStatus;
-            //     item.importance = item.keepImportance;
-            // }
             this.sortWithImportance;
         },
         changeImportance(i, item) {
@@ -153,15 +147,6 @@ export default {
         getFromServer() {
             axios.get(this.serverLink).then(response => (this.items = response.data));
         }
-        /*
-        ,
-        async updateForServer(){
-            for(const item of this.items){
-                await axios.put(this.serverLink + "/" + item.id, item);
-            }
-            this.getFromServer();
-        }
-        */
     },
     computed: {
         sortWithImportance(){
