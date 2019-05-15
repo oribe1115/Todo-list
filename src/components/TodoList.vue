@@ -7,7 +7,7 @@
 
             <div class="task unfinished">
                 <div class="category-message">Let's begin!</div>
-                <div v-for="item in items" :key="item.id">
+                <div v-for="item in sortWithImportance" :key="item.id">
                     <div v-if="!(item.finish)">
                         <div class="item">
                             <div class="check">
@@ -49,7 +49,7 @@
 
             <div class="task finished">
                 <div class="category-message">Finished</div>
-                <div v-for="item in items" :key="item.id">
+                <div v-for="item in sortWithImportance" :key="item.id">
                     <div v-if="item.finish">
                         <div class="item">
                             <div class="check">
@@ -119,11 +119,9 @@ export default {
         },
         mouseOver(i, item) {
             item.hoverStar = i;
-            axios.put(this.serverLink + "/" + item.id, item);
         },
         mouseLeave(item) {
             item.hoverStar = 0;
-            axios.put(this.serverLink + "/" + item.id, item);
         },
         compareForFillStars(item) {
             if(item.hoverStar != 0){
@@ -150,7 +148,7 @@ export default {
     },
     computed: {
         sortWithImportance(){
-            this.items.sort((a, b) => b.importance - a.importance);
+            return [...this.items].sort((a, b) => b.importance - a.importance);
         }
     },
     mounted() {
