@@ -110,7 +110,6 @@ export default {
                 this.newItemName = "";
                 this.count++;
                 this.postToServer(item);
-                this.getFromServer();    
             }
         },
         update() {
@@ -145,7 +144,7 @@ export default {
             }
         },
         postToServer(item) {
-            axios.post(this.serverLink, item);
+            axios.post(this.serverLink, item).then(response => (this.items = response.data));
         },
         getFromServer() {
             axios.get(this.serverLink).then(response => (this.items = response.data));
