@@ -11,8 +11,8 @@
                     <div v-if="!(item.finish)">
                         <div class="item">
                             <div class="check">
-                                <div v-bind:class="{checked: item.keepStatus, unchecked: item.keepStatus == false}">
-                                    <div @click="changeKeepStatus(item)">
+                                <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
+                                    <div @click="changeStatus(item)">
                                         <font-awesome-icon icon="check" />
                                     </div>
                                 </div>
@@ -53,8 +53,8 @@
                     <div v-if="item.finish">
                         <div class="item">
                             <div class="check">
-                                <div v-bind:class="{checked: item.keepStatus, unchecked: item.keepStatus == false}">
-                                    <div @click="changeKeepStatus(item)">
+                                <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
+                                    <div @click="changeStatus(item)">
                                         <font-awesome-icon icon="check" />
                                     </div>
                                 </div>
@@ -113,10 +113,10 @@ export default {
             }
         },
         update() {
-            for(const item of this.items){
-                item.finish = item.keepStatus;
-                item.importance = item.keepImportance;
-            }
+            // for(const item of this.items){
+            //     item.finish = item.keepStatus;
+            //     item.importance = item.keepImportance;
+            // }
             this.sortWithImportance;
         },
         changeKeepImportance(i, item) {
@@ -137,11 +137,13 @@ export default {
                 return item.keepImportance;
             }
         },
-        changeKeepStatus(item){
-            if(item.keepStatus == true){
-                item.keepStatus = false;
+        changeStatus(item){
+            if (item.finish == true){
+                item.finish = false;
+                axios.put(this.serverLink + "/" + item.id, item);
             } else {
-                item.keepStatus = true;
+                item.finish = true;
+                axios.put(this.serverLink + "/" + item.id, item);
             }
         },
         postToServer(item) {
