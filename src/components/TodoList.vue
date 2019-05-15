@@ -41,9 +41,6 @@
                         </label>
                         <button @click="addItem">add</button>
                     </div>
-                    <div class="update">
-                        <button @click="update">update</button>
-                    </div>
                 </div>
             </div>
 
@@ -109,9 +106,6 @@ export default {
                 this.count++;
                 this.postToServer(item);
             }
-        },
-        update() {
-            this.sortWithImportance;
         },
         changeImportance(i, item) {
             item.importance = i;
