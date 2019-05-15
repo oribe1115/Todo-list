@@ -21,7 +21,7 @@
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
                                     <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
-                                        <div @click="changeKeepImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
+                                        <div @click="changeImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
                                             <font-awesome-icon icon="star" />
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                             <div class="star-box">
                                 <div v-for="i in 5" :key="i">
                                     <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
-                                        <div @click="changeKeepImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
+                                        <div @click="changeImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
                                             <font-awesome-icon icon="star" />
                                         </div>
                                     </div>
@@ -119,22 +119,23 @@ export default {
             // }
             this.sortWithImportance;
         },
-        changeKeepImportance(i, item) {
-            item.keepImportance = i;
-            item.importance = item.keepImportance;
+        changeImportance(i, item) {
+            item.importance = i;
             axios.put(this.serverLink + "/" + item.id, item);
         },
         mouseOver(i, item) {
             item.hoverStar = i;
+            axios.put(this.serverLink + "/" + item.id, item);
         },
         mouseLeave(item) {
             item.hoverStar = 0;
+            axios.put(this.serverLink + "/" + item.id, item);
         },
         compareForFillStars(item) {
             if(item.hoverStar != 0){
                 return item.hoverStar;
             } else {
-                return item.keepImportance;
+                return item.importance;
             }
         },
         changeStatus(item){
