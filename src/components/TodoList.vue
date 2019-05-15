@@ -117,11 +117,12 @@ export default {
                 item.finish = item.keepStatus;
                 item.importance = item.keepImportance;
             }
-            this.updateForServer();
             this.sortWithImportance;
         },
         changeKeepImportance(i, item) {
             item.keepImportance = i;
+            item.importance = item.keepImportance;
+            axios.put(this.serverLink + "/" + item.id, item);
         },
         mouseOver(i, item) {
             item.hoverStar = i;
@@ -148,13 +149,16 @@ export default {
         },
         getFromServer() {
             axios.get(this.serverLink).then(response => (this.items = response.data));
-        },
+        }
+        /*
+        ,
         async updateForServer(){
             for(const item of this.items){
                 await axios.put(this.serverLink + "/" + item.id, item);
             }
             this.getFromServer();
         }
+        */
     },
     computed: {
         sortWithImportance(){
