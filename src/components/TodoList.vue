@@ -7,7 +7,7 @@
 
             <div class="task unfinished">
                 <div class="category-message">Let's begin!</div>
-                <transition-group>
+                <transition-group name="all-tasks">
                     <div v-for="item in sortWithImportance" :key="item.id">
                         <div v-if="!(item.finish)">
                             <div class="item">
@@ -48,7 +48,7 @@
 
             <div class="task finished">
                 <div class="category-message">Finished</div>
-                <transition-group>
+                <transition-group name="all-tasks">
                     <div v-for="item in sortWithImportance" :key="item.id">
                         <div v-if="item.finish">
                             <div class="item">
