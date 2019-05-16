@@ -9,27 +9,29 @@
                 <div class="category-message">Let's begin!</div>
                 <transition-group name="all-tasks">
                     <div v-for="item in sortWithImportance" :key="item.id">
-                        <div v-if="!(item.finish)">
-                            <div class="item">
-                                <div class="check">
-                                    <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
-                                        <div @click="changeStatus(item)">
-                                            <font-awesome-icon icon="check" />
+                        <transition name="show-item">
+                            <div v-if="!(item.finish)">
+                                <div class="item">
+                                    <div class="check">
+                                        <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
+                                            <div @click="changeStatus(item)">
+                                                <font-awesome-icon icon="check" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="name">{{ item.name }}</div>
-                                <div class="star-box">
-                                    <div v-for="i in 5" :key="i">
-                                        <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
-                                            <div @click="changeImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
-                                                <font-awesome-icon icon="star" />
+                                    <div class="name">{{ item.name }}</div>
+                                    <div class="star-box">
+                                        <div v-for="i in 5" :key="i">
+                                            <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
+                                                <div @click="changeImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
+                                                    <font-awesome-icon icon="star" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </transition>
                     </div>
                 </transition-group>
             </div>  
@@ -50,27 +52,29 @@
                 <div class="category-message">Finished</div>
                 <transition-group name="all-tasks">
                     <div v-for="item in sortWithImportance" :key="item.id">
-                        <div v-if="item.finish">
-                            <div class="item">
-                                <div class="check">
-                                    <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
-                                        <div @click="changeStatus(item)">
-                                            <font-awesome-icon icon="check" />
+                        <transition name="show-item">
+                            <div v-if="item.finish">
+                                <div class="item">
+                                    <div class="check">
+                                        <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
+                                            <div @click="changeStatus(item)">
+                                                <font-awesome-icon icon="check" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="name">{{ item.name }}</div>
-                                <div class="star-box">
-                                    <div v-for="i in 5" :key="i">
-                                        <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
-                                            <div @click="changeImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
-                                                <font-awesome-icon icon="star" />
+                                    <div class="name">{{ item.name }}</div>
+                                    <div class="star-box">
+                                        <div v-for="i in 5" :key="i">
+                                            <div v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}">
+                                                <div @click="changeImportance(i, item)" @mouseover="mouseOver(i, item)" @mouseleave="mouseLeave(item)">
+                                                    <font-awesome-icon icon="star" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </transition>
                     </div>
                 </transition-group>
             </div>

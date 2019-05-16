@@ -143,4 +143,17 @@ transform: translateX(10px);
 opacity: 0;
 }
 
+.show-item-enter-active {
+    transition: all .8s ease;
+}
+
+.show-item-leave-active {
+transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.show-item-enter, .show-item-leave-to {
+transform: translateX(-10px);
+opacity: 0;
+}
+
 
