@@ -8,12 +8,17 @@
         <transition-group name="all-tasks">
           <div v-for="item in sortWithImportance" :key="item.id">
             <transition name="show-item">
-              <div v-if="!(item.finish)">
+              <div v-if="!item.finish">
                 <div class="item">
                   <div class="check">
-                    <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
+                    <div
+                      v-bind:class="{
+                        checked: item.finish,
+                        unchecked: item.finish == false
+                      }"
+                    >
                       <div @click="changeStatus(item)">
-                        <font-awesome-icon icon="check"/>
+                        <font-awesome-icon icon="check" />
                       </div>
                     </div>
                   </div>
@@ -21,14 +26,17 @@
                   <div class="star-box">
                     <div v-for="i in 5" :key="i">
                       <div
-                        v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}"
+                        v-bind:class="{
+                          filled: i <= compareForFillStars(item),
+                          blank: i > compareForFillStars(item)
+                        }"
                       >
                         <div
                           @click="changeImportance(i, item)"
                           @mouseover="mouseOver(i, item)"
                           @mouseleave="mouseLeave(item)"
                         >
-                          <font-awesome-icon icon="star"/>
+                          <font-awesome-icon icon="star" />
                         </div>
                       </div>
                     </div>
@@ -45,7 +53,7 @@
         <div class="buttons">
           <div class="addition">
             <label>
-              <input type="text" v-model="newItemName">
+              <input type="text" v-model="newItemName" />
             </label>
             <button @click="addItem">add</button>
           </div>
@@ -60,9 +68,14 @@
               <div v-if="item.finish">
                 <div class="item">
                   <div class="check">
-                    <div v-bind:class="{checked: item.finish, unchecked: item.finish == false}">
+                    <div
+                      v-bind:class="{
+                        checked: item.finish,
+                        unchecked: item.finish == false
+                      }"
+                    >
                       <div @click="changeStatus(item)">
-                        <font-awesome-icon icon="check"/>
+                        <font-awesome-icon icon="check" />
                       </div>
                     </div>
                   </div>
@@ -70,14 +83,17 @@
                   <div class="star-box">
                     <div v-for="i in 5" :key="i">
                       <div
-                        v-bind:class="{filled: i <= compareForFillStars(item), blank: i > compareForFillStars(item)}"
+                        v-bind:class="{
+                          filled: i <= compareForFillStars(item),
+                          blank: i > compareForFillStars(item)
+                        }"
                       >
                         <div
                           @click="changeImportance(i, item)"
                           @mouseover="mouseOver(i, item)"
                           @mouseleave="mouseLeave(item)"
                         >
-                          <font-awesome-icon icon="star"/>
+                          <font-awesome-icon icon="star" />
                         </div>
                       </div>
                     </div>
