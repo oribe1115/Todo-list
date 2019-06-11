@@ -118,7 +118,7 @@ export default {
       count: 1,
       newItemName: "",
       items: [],
-      serverLink: "https://to-hutohu.trap.show/naro-todo-server/oribe/tasks"
+      serverLink: "https://oribe-todo-list-server.herokuapp.com/"
     };
   },
   methods: {
