@@ -124,14 +124,14 @@ export default {
   methods: {
     addItem() {
       if (this.newItemName != "") {
-        const item = {
+        const newitem = {
           name: this.newItemName,
           finish: false,
           importance: 1,
           hoverStar: 0
         };
         this.newItemName = "";
-        this.postToServer(item);
+        this.postToServer(newitem);
       }
     },
     changeImportance(i, item) {
