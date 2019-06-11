@@ -118,7 +118,7 @@ export default {
       count: 1,
       newItemName: "",
       items: [],
-      serverLink: "https://oribe-todo-list-server.herokuapp.com/"
+      serverLink: "https://oribe-todo-list-server.herokuapp.com"
     };
   },
   methods: {
