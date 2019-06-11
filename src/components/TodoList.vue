@@ -124,17 +124,7 @@ export default {
   methods: {
     addItem() {
       if (this.newItemName != "") {
-        let newId = 1;
-        for (const item of this.items) {
-          if (newId == item.id) {
-            newId += 1;
-          } else {
-            break;
-          }
-        }
-
         const item = {
-          id: newId,
           name: this.newItemName,
           finish: false,
           importance: 1,
